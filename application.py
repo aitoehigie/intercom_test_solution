@@ -24,7 +24,7 @@ def distance_calculator(slat, slong, elat, elong):
         return 0
 
 
-def app(file_name):
+def file_reader(file_name):
     customers = []
     try:
         with open(file_name, "r") as file:
@@ -54,8 +54,8 @@ def main(file_name):
 
    It is compulsory while calling the program that you pass in a json file containing the customer details.
    """
-    pp = pprint.PrettyPrinter(indent=2)
-    return pp.pprint(app(file_name))
+    pp = pprint.PrettyPrinter(indent=4)
+    return pp.pprint(file_reader(file_name))
 
 if __name__ == "__main__":
-    print (main())
+    main()
