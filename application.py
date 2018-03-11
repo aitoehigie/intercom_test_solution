@@ -4,9 +4,9 @@ import click
 import pprint
 import ujson as json
 from math import sin, cos, acos, radians
-########################################
-# Intercom Dublin latitude and longitude
-########################################
+################################################
+# Intercom Dublin office: latitude and longitude
+################################################
 
 INTERCOM_LATITUDE = 53.339428
 INTERCOM_LONGITUDE = -6.257664
@@ -17,7 +17,7 @@ def distance_calculator(slat, slong, elat, elong):
         slong = radians(slong)
         elat = radians(elat)
         elong = radians(elong)
-        longitude_delta = slong - elong
+        longitude_delta = abs(slong - elong)
         distance = 6371* acos(sin(slat) * sin(elat) + cos(slat) * cos(elat) * cos(longitude_delta))
         return round(distance, 2)
     except:
@@ -26,8 +26,9 @@ def distance_calculator(slat, slong, elat, elong):
 
 def file_reader(file_name):
     try:
-        file_object =  open(file_name, "r")
-        return file_object
+        with open(file_name, "r") as file_object:
+            file_object_data = file_object.readlines()
+            return file_object_data
     except IOError as e:
         print ("I/O error({0}): {1}".format(e.errno, e.strerror))
     except:
@@ -36,8 +37,8 @@ def file_reader(file_name):
 
 def app_logic(file_name):
     customers = []
-    file_object = file_reader(file_name)
-    for line in file_object.readlines():
+    file_object_data = file_reader(file_name)
+    for line in file_object_data:
         json_data = json.loads(line)
         elat = float(json_data.get("latitude"))
         elong = float(json_data.get("longitude"))
@@ -46,7 +47,6 @@ def app_logic(file_name):
             customers.append(dict(name = json_data.get("name"), user_id = json_data.get("user_id")))
         else:
             continue
-    file_object.close()
     customers = sorted(customers, key=lambda customers: customers["user_id"])
     return customers
 
