@@ -9,7 +9,6 @@
 
 
 import click
-import pprint
 import ujson as json
 from math import sin, cos, acos, radians
 from tabulate import tabulate
@@ -72,8 +71,6 @@ def main(file_name):
 
    It is compulsory while calling the program that you pass in a json file containing the customer details.
     """
-    #pp = pprint.PrettyPrinter(indent=4)
-    #return pp.pprint(app_logic(file_name))
     print(tabulate(app_logic(file_name), headers='keys', tablefmt='psql', showindex=False))
 
 if __name__ == "__main__":
