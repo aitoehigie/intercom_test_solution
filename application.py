@@ -28,7 +28,7 @@ def file_reader(file_name):
     try:
         with open(file_name, "r") as file_object:
             file_object_data = file_object.readlines()
-            return file_object_data
+        return file_object_data
     except IOError as e:
         print ("I/O error({0}): {1}".format(e.errno, e.strerror))
     except:
