@@ -32,7 +32,7 @@ def distance_calculator(slat, slong, elat, elong):
         distance = 6371 * acos(sin(slat) * sin(elat) +
                                cos(slat) * cos(elat) * cos(longitude_delta))
         return round(distance, 2)
-    except:
+    except ValueError:
         return 0
 
 
