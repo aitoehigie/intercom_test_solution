@@ -47,6 +47,7 @@ This script uses pytest for testing.
 3. test_distance_calculator_raises_exception_on_zero_or_incomplete_arguments
 4. test_file_reader_raises_exception__on_no_file_name_argument
 5. test_file_reader_raises_exception_on_inability_to_open_file
+6. test_app_logic_raises_exception_on_no_file_name_argument
 
 ## Built With
 
