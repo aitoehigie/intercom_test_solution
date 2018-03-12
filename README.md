@@ -35,15 +35,16 @@ Example:
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+This script uses pytest for testing. 
 
-### Break down into end to end tests
+1. Run this command to automatically run all tests:
+"pytest"
 
-Explain what these tests test and why
+### List of tests to be run
 
-```
-Give an example
-```
+1. test_distance_calculator
+2. test_distance_calculator_raises_exception_on_non_float_or_integer_arguments
+3. test_distance_calculator_raises_exception_on_zero_or_incomplete_arguments
 
 ## Built With
 

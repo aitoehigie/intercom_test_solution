@@ -1,4 +1,5 @@
 {
+  "test_application.py": true,
   "test_application.py::test_raises_exception_on_non_string_arguments": true,
   "test_multi.py::test_multi_empty": true
 }

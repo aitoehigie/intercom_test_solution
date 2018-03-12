@@ -45,6 +45,7 @@ def file_reader(file_name):
         print ("I/O error({0}): {1}".format(e.errno, e.strerror))
     except:
         print ("Unexpeceted error:", sys.exc_info()[0])
+        raise
 
 
 def app_logic(file_name):
