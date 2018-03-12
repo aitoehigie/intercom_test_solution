@@ -44,7 +44,7 @@ def file_reader(file_name):
     except IOError as e:
         print ("I/O error({0}): {1}".format(e.errno, e.strerror))
         return None
-    except:
+    except RuntimeError:
         print ("Unexpeceted error:", sys.exc_info()[0])
         return None
 
