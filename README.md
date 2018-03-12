@@ -1,41 +1,37 @@
-# Intercom Task
+# Intercom Test Solution
 
-This is little program that will read the full list of customers and output
-the names and user ids of matching customers (within 100km) of Intercom Dubl$
-Why? They are good guys and want to invite them for some food and drinks. :)
-
-It is compulsory while calling the program that you pass in a json file containing the customer details.
-.
+This is a little program that will read a JSON file that contains the full list of customers and output
+the names and user ids of matching customers (within 100km) of Intercom Dublin offices, sorted by User ID (ascending).
+Why? They are good guys and want to invite them for some food and drinks :) .
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+You need to have the following installed for this script to run:
+1. Python 3
+2. Click 
+3. ujson
+4. tabulate
+5. pipenv
+6. Pytest
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+1. Install pipenv first by running this command:
+"pip install pipenv"
+2. Create a virtual environment by running this command:
+"pipenv --python 3"
+3. Install all the dependencies by running this command:
+"pipenv install"
+4. Now the program is ready to be run. Do this:
+"python3 application.py --file-name [json file location containing customer info]"
+Example:
+"python3 application.py --file-name customers.json
+5. The results will be displayed in a tabular form.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -49,37 +45,18 @@ Explain what these tests test and why
 Give an example
 ```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
+* [pipenv] - Official Python packaging tool
+* [ujson] - Handling of JSON data
+* [tabulate] - Display tabular data 
+* [Click] - Creation of CLI programs from Python scripts.
+* [python 3] - The Python Interpreter
+* [pytest] - Write tests for python programs
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ehigie Pascal Aito** - *Initial work* - [aitoehigie](https://github.com/aitoehigie)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
 ## License
 
@@ -87,10 +64,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
-
-
-
-
+* Kenneth Reitz (pipenv)
+* Aaron Ronacher (click)
