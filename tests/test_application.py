@@ -30,3 +30,9 @@ def test_file_reader_raises_exception__on_no_file_name_argument():
 
 def test_file_reader_raises_exception_on_inability_to_open_file():
     file_reader("jibberish.json")
+
+
+
+def test_app_logic_raises_exception_on_no_file_name_argument():
+    with pytest.raises(TypeError):
+        app_logic()
