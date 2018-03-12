@@ -22,9 +22,11 @@ def test_distance_calculator_raises_exception_on_zero_or_incomplete_arguments():
         distance_calculator(INTERCOM_LATITUDE, INTERCOM_LONGITUDE, 54.133333)
         distance_calculator()
 
+
 def test_file_reader_raises_exception__on_no_file_name_argument():
     with pytest.raises(TypeError):
         file_reader()
+
 
 def test_file_reader_raises_exception_on_inability_to_open_file():
     file_reader("jibberish.json")

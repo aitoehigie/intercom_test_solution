@@ -43,26 +43,37 @@ def file_reader(file_name):
         return file_object_data
     except IOError as e:
         print ("I/O error({0}): {1}".format(e.errno, e.strerror))
+        return None
     except:
         print ("Unexpeceted error:", sys.exc_info()[0])
-        raise
+        return None
 
 
 def app_logic(file_name):
     customers = []
-    file_object_data = file_reader(file_name)
-    for line in file_object_data:
-        json_data = json.loads(line)
-        elat = float(json_data.get("latitude"))
-        elong = float(json_data.get("longitude"))
-        distance = distance_calculator(
-            slat=INTERCOM_LATITUDE, slong=INTERCOM_LONGITUDE, elat=elat, elong=elong)
-        if distance <= 100:
-            customers.append(dict(name=json_data.get("name"),
-                                  user_id=json_data.get("user_id")))
-        else:
-            continue
-    customers = sorted(customers, key=lambda customers: customers["user_id"])
+    if not isinstance(file_name, str):
+        raise TypeError("Please provide a valid JSON file string argument")
+    else:
+        try:
+            file_object_data = file_reader(file_name)
+            if file_object_data:
+                for line in file_object_data:
+                    json_data = json.loads(line)
+                    elat = float(json_data.get("latitude"))
+                    elong = float(json_data.get("longitude"))
+                    distance = distance_calculator(
+                        slat=INTERCOM_LATITUDE, slong=INTERCOM_LONGITUDE, elat=elat, elong=elong)
+                    if distance <= 100:
+                        customers.append(dict(name=json_data.get("name"),
+                                              user_id=json_data.get("user_id")))
+                    else:
+                        continue
+            else:
+                return None
+            customers = sorted(
+                customers, key=lambda customers: customers["user_id"])
+        except RuntimeError:
+            print ("An Error occured")
     return customers
 
 
@@ -76,8 +87,12 @@ def main(file_name):
 
    It is compulsory while calling the program that you pass in a json file containing the customer details.
     """
-    print(tabulate(app_logic(file_name), headers='keys',
-                   tablefmt='psql', showindex=False))
+    customers = app_logic(file_name)
+    if customers:
+        print(tabulate(customers, headers='keys',
+                       tablefmt='psql', showindex=False))
+    else:
+        print ("The file name is not valid")
 
 
 if __name__ == "__main__":
