@@ -55,7 +55,7 @@ Give an example
 * [pytest] - Write tests for python programs
 ## Authors
 
-* **Ehigie Pascal Aito** - *Initial work* - [aitoehigie](https://github.com/aitoehigie)
+* **Ehigie Pascal Aito**  - [aitoehigie](https://github.com/aitoehigie)
 
 
 ## License
